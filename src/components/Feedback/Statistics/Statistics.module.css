@@ -1,0 +1,11 @@
+
+
+.feedback__statistics {
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.feedback__item:not(:last-child) {
+    margin-bottom: 8px;
+}
