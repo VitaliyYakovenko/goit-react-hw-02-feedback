@@ -9,7 +9,7 @@ export default function FeedbackOptions({
 }) {
     return (
         <ul className={css.feedback__btn}>
-        <li><button  onClick={onAddGoodFeedback} type="button">Good</button></li>   
+        <li><button onClick={onAddGoodFeedback} type="button">Good</button></li>   
         <li><button onClick={onAddNeutralFeedback} type="button">Neutral</button></li>
         <li><button onClick={onAddBadFeedback} type="button">Bad</button></li>
         </ul>
@@ -19,5 +19,5 @@ export default function FeedbackOptions({
 FeedbackOptions.propTypes = {
     onAddGoodFeedback: PropTypes.func.isRequired,
     onAddNeutralFeedback: PropTypes.func.isRequired,
-    onAddGoodFeedback : PropTypes.func.isRequired,
+    onAddBadFeedback : PropTypes.func.isRequired,
 }

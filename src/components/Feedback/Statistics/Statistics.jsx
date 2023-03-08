@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import css from "./Statistics.module.css"
 
-console.log(css);
 
 export default function Statistics({
     good,
