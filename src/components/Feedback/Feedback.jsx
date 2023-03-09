@@ -20,23 +20,14 @@ class Feedback extends Component {
         neutral: this.props.initialValue,
         bad: this.props.initialValue,
     };
-
-    onAddGoodFeedback = () => {
-        this.setState(prevState => ({
-            good: prevState.good + 1,
-        }))
-    };
-    onAddNeutralFeedback = () => {
-        this.setState(prevState => ({
-         neutral: prevState.neutral + 1,
-        }))
-    };
-    onAddBadFeedback = () => {
-        this.setState(prevState => ({
-            bad: prevState.bad + 1,
-        }))
-    };
     
+    onGetFeedback = (option) => {
+         this.setState(prevState => ({
+          [option]: this.state[option] + 1,
+         }))
+
+    };
+
     countTotalFeedback = () => {
         const { good, neutral, bad } = this.state
         const total = good + bad + neutral
@@ -50,15 +41,15 @@ class Feedback extends Component {
     };
     
     render() {
-
         const { good, neutral, bad } = this.state
+        const option = Object.keys(this.state);
+        
         return (
             <div className={css.feedback}>
             <Section title="Please leave feedback">
             <FeedbackOptions
-            onAddGoodFeedback={this.onAddGoodFeedback}
-            onAddNeutralFeedback={this.onAddNeutralFeedback}
-            onAddBadFeedback={this.onAddBadFeedback}              
+            option = {option}
+            onLeaveFeedback={this.onGetFeedback}             
             />  
             </Section>
             <Section title="Statistics">
@@ -81,4 +72,11 @@ class Feedback extends Component {
 }
 
 export default Feedback;
+
+
+
+
+
+
+
 

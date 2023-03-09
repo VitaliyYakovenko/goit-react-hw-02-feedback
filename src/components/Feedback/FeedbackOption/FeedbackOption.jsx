@@ -2,22 +2,21 @@ import PropTypes from 'prop-types';
 import css from "./FeedbackOption.module.css"
 
 
-export default function FeedbackOptions({
-    onAddGoodFeedback,
-    onAddNeutralFeedback,
-    onAddBadFeedback,
-}) {
+export default function FeedbackOptions({option, onLeaveFeedback }) {
     return (
         <ul className={css.feedback__btn}>
-        <li><button onClick={onAddGoodFeedback} type="button">Good</button></li>   
-        <li><button onClick={onAddNeutralFeedback} type="button">Neutral</button></li>
-        <li><button onClick={onAddBadFeedback} type="button">Bad</button></li>
+        {option.map(option => (
+            <li key={option}>
+                <button onClick={()=> {onLeaveFeedback(option)}} type='button'>{option}</button>
+            </li>
+       ))}
         </ul>
     )
 }
 
 FeedbackOptions.propTypes = {
-    onAddGoodFeedback: PropTypes.func.isRequired,
-    onAddNeutralFeedback: PropTypes.func.isRequired,
-    onAddBadFeedback : PropTypes.func.isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired,
+    option:  PropTypes.array.isRequired,
 }
+
+
